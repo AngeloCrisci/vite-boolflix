@@ -1,19 +1,23 @@
 <script>
-import HeaderButton from './HeaderButton.vue'
 import HeaderSearchBar from './HeaderSearchBar.vue'
 export default {
     name: 'AppHeader',
     components: {
-        HeaderButton,
         HeaderSearchBar,
     }
 }
 </script>
 
 <template>
-    <h1>BOOLFLIX</h1>
-    <HeaderButton />
-    <HeaderSearchBar />
+    <section id="nav-bar" class="d-flex">
+        <h1>BOOLFLIX</h1>
+        <HeaderSearchBar />
+    </section>
+
 </template>
 
-<style></style>
+<style scoped lang="scss">
+h1 {
+    color: rgb(128, 15, 15);
+}
+</style>
