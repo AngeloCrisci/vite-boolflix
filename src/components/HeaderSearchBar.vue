@@ -10,16 +10,17 @@ export default {
     data() {
         return {
             store,
-            query: '',
         }
     },
     methods: {
         getApi() {
-            axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${store.apiKey}&query=${query}`, {
+            axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${store.apiKey}&query=${this.query}`, {
 
             })
-                .then(function (response) {
-                    console.log(response);
+                .then((response) => {
+                    console.log(response.data);
+                    store.results = response.data.results;
+                    console.log(store.results)
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -30,11 +31,11 @@ export default {
 
         },
 
-        getTextValue(query) {
+        getTextValue() {
             console.log('getTextValue');
             console.log(store.searchValueText);
-            store.searchValueText = query;
-            this.getApi();
+            this.query = store.searchValueText
+            this.getApi()
             console.log(this.getApi)
 
         }

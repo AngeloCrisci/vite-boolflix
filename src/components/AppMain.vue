@@ -1,7 +1,13 @@
 <script>
 import { store } from '../store';
+import AppHeader from './AppHeader.vue';
+import AppContent from './AppContent.vue';
 export default {
-    name: 'AppHeader',
+    name: 'AppMain',
+    components: {
+        AppHeader,
+        AppContent,
+    },
     data() {
         return {
             store,
@@ -11,7 +17,8 @@ export default {
 </script>
 
 <template>
-
+    <AppHeader />
+    <AppContent />
 </template>
 
 <style></style>
