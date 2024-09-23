@@ -9,7 +9,7 @@ export default {
     },
     methods: {
         GetSearchValue() {
-            this.$emit('searched-value', this.searchValueText)
+            this.$emit('searched-value', this.store.searchValueText)
         }
     }
 }
