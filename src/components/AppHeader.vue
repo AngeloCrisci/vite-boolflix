@@ -1,9 +1,15 @@
 <script>
+import { store } from '../store'
 import HeaderSearchBar from './HeaderSearchBar.vue'
 export default {
     name: 'AppHeader',
     components: {
         HeaderSearchBar,
+    },
+    data() {
+        return {
+            store,
+        }
     }
 }
 </script>

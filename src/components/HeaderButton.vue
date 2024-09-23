@@ -1,9 +1,10 @@
 <script>
+import { store } from '../store'
 export default {
     name: 'HeaderButton',
     data() {
         return {
-
+            store,
         }
     },
     methods: {

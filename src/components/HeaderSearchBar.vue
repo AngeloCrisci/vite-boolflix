@@ -1,6 +1,6 @@
 <script>
-import { store } from '../store.js'
 import HeaderButton from './HeaderButton.vue'
+import { store } from '../store'
 export default {
     name: 'HeaderSearchBar',
     components: {
