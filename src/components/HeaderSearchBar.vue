@@ -10,33 +10,41 @@ export default {
     data() {
         return {
             store,
+            query: '',
         }
     },
     methods: {
-        getMovie(parameters) {
-            axios
-                .get()
+        getApi() {
+            axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${store.apiKey}&query=${query}`, {
+
+            })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+                .finally(function () {
+                    // always executed
+                });
 
         },
 
-        getTextValue() {
+        getTextValue(query) {
             console.log('getTextValue');
             console.log(store.searchValueText);
-            const parameters = {
-                //api
-                //query (store.searchValueText)
-                //languages
-            }
-            this.getMovie(parameters)
+            store.searchValueText = query;
+            this.getApi();
+            console.log(this.getApi)
 
-            //this.store.searchValueText = store.searchValueText;
         }
     }
 }
 </script>
 
 <template>
-    <input v-model="store.searchValueText" class="form-control" type="text">
+    <input v-model="store.searchValueText" class="form-control" type="text"
+        placeholder="Search for something on Boolflix">
     <HeaderButton @searched-value="getTextValue" />
 </template>
 
