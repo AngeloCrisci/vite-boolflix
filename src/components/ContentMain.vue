@@ -13,6 +13,19 @@ export default {
         return {
             store,
         }
+    },
+    methods: {
+        getFlag(languageCode) {
+            const changeFlag = {
+                en: 'gb',
+                pt: 'br',
+                zh: 'cn',
+                ja: 'jp',
+                ko: 'kr'
+            };
+            const countryInitial = changeFlag[languageCode] || languageCode;
+            return `https://flagcdn.com/w40/${countryInitial}.png`;
+        }
     }
 }
 
@@ -22,7 +35,9 @@ export default {
 <template>
     <ul>
         <li>{{ result.original_title }}</li>
-        <li>{{ result.original_language }}</li>
+        <li>
+            <img :src="getFlag(result.original_language)" alt="flag">
+        </li>
         <li>{{ result.title }}</li>
         <li> {{ result.vote_average }}</li>
     </ul>

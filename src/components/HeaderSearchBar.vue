@@ -14,7 +14,7 @@ export default {
     },
     methods: {
         getApi() {
-            axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${store.apiKey}&query=${this.query}`, {
+            axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${store.apiKey}&query=${this.query}` || `https://api.themoviedb.org/3/search/tv?api_key=${store.apiKey}&query=${this.query}`, {
 
             })
                 .then((response) => {
